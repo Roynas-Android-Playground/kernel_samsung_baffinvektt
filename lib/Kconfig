@@ -267,4 +267,11 @@ config OID_REGISTRY
 	help
 	  Enable fast lookup object identifier registry.
 
+config MPILIB
+	tristate "Multiprecision maths library"
+	help
+	  Multiprecision maths library from GnuPG.
+	  It is used to implement RSA digital signature verification,
+	  which is used by IMA/EVM digital signature extension.
+
 endmenu
