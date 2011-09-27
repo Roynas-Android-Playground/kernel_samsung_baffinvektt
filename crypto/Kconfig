@@ -110,6 +110,13 @@ config CRYPTO_MANAGER2
 	select CRYPTO_BLKCIPHER2
 	select CRYPTO_PCOMP2
 
+config CRYPTO_USER
+	tristate "Userspace cryptographic algorithm configuration"
+	select CRYPTO_MANAGER
+	help
+	  Userapace configuration for cryptographic instantiations such as
+	  cbc(aes).
+
 config CRYPTO_MANAGER_TESTS
 	bool "Run algolithms' self-tests"
 	default y
