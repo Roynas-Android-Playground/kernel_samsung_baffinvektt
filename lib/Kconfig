@@ -264,11 +264,12 @@ config AVERAGE
 
 config OID_REGISTRY
 	tristate
-	help
-	  Enable fast lookup object identifier registry.
+config CLZ_TAB
+	bool
 
 config MPILIB
 	tristate "Multiprecision maths library"
+	select CLZ_TAB
 	help
 	  Multiprecision maths library from GnuPG.
 	  It is used to implement RSA digital signature verification,
