@@ -262,4 +262,9 @@ config AVERAGE
 
 	  If unsure, say N.
 
+config OID_REGISTRY
+	tristate
+	help
+	  Enable fast lookup object identifier registry.
+
 endmenu
