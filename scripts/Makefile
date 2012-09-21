@@ -15,6 +15,7 @@ hostprogs-$(CONFIG_IKCONFIG)     += bin2c
 hostprogs-$(BUILD_C_RECORDMCOUNT) += recordmcount
 hostprogs-$(CONFIG_ASN1)	 += asn1_compiler
 
+HOSTCFLAGS_sortextable.o = -I$(srctree)/tools/include
 HOSTCFLAGS_asn1_compiler.o = -I$(srctree)/include
 
 always		:= $(hostprogs-y) $(hostprogs-m)
