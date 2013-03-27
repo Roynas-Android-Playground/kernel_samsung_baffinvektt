@@ -15,7 +15,6 @@
 #include <linux/stddef.h>
 #include <linux/kernel.h>
 #include <linux/skbuff.h>
-#include <linux/netlink.h>
 #include <linux/selinux_netlink.h>
 #include <net/net_namespace.h>
 #include <net/netlink.h>
@@ -74,7 +73,7 @@ static void selnl_notify(int msgtype, void *data)
 
 	len = selnl_msglen(msgtype);
 
-	skb = alloc_skb(NLMSG_SPACE(len), GFP_USER);
+	skb = nlmsg_new(len, GFP_USER);
 	if (!skb)
 		goto oom;
 
