@@ -60,6 +60,9 @@ int create_user_ns(struct cred *new)
 	/* root_user holds a reference to ns, our reference can be dropped */
 	put_user_ns(ns);
 
+#ifdef CONFIG_PERSISTENT_KEYRINGS
+	init_rwsem(&ns->persistent_keyring_register_sem);
+#endif
 	return 0;
 }
 

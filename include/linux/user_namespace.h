@@ -14,6 +14,12 @@ struct user_namespace {
 	struct hlist_head	uidhash_table[UIDHASH_SZ];
 	struct user_struct	*creator;
 	struct work_struct	destroyer;
+
+	/* Register of per-UID persistent keyrings for this namespace */
+#ifdef CONFIG_PERSISTENT_KEYRINGS
+	struct key		*persistent_keyring_register;
+	struct rw_semaphore	persistent_keyring_register_sem;
+#endif
 };
 
 extern struct user_namespace init_user_ns;

@@ -26,6 +26,10 @@ struct user_namespace init_user_ns = {
 		.refcount	= ATOMIC_INIT(3),
 	},
 	.creator = &root_user,
+#ifdef CONFIG_KEYS_KERBEROS_CACHE
+	.krb_cache_register_sem =
+	__RWSEM_INITIALIZER(init_user_ns.krb_cache_register_sem),
+#endif
 };
 EXPORT_SYMBOL_GPL(init_user_ns);
 
