@@ -14,6 +14,7 @@
 #include <linux/slab.h>
 #include <linux/err.h>
 #include <linux/assoc_array_priv.h>
+#include <linux/fs.h>
 
 /*
  * Iterate over an associative array.  The caller must hold the RCU read lock
