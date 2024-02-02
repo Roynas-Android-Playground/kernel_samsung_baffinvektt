@@ -640,6 +640,9 @@ KBUILD_CFLAGS	+= $(call cc-option,-fno-strict-overflow)
 # conserve stack if available
 KBUILD_CFLAGS   += $(call cc-option,-fconserve-stack)
 
+# don't warn about address being nonnull, breaks macros a lot
+KBUILD_CFLAGS   += $(call cc-disable-warning, address)
+
 # use the deterministic mode of AR if available
 KBUILD_ARFLAGS := $(call ar-option,D)
 
