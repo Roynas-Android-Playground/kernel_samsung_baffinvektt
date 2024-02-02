@@ -1,7 +1,10 @@
 #!/bin/bash
 
 export ARCH=arm
-export CROSS_COMPILE=/opt/toolchains/arm-eabi-4.4.3/bin/arm-eabi-
+export CROSS_COMPILE=arm-linux-androideabi-
+export PATH=$PWD/toolchain/bin:$PATH
 
-make baffinvektt_00_defconfig
-make
+make $COMMON baffinvektt_00_defconfig
+make $COMMON savedefconfig
+cp defconfig arch/arm/configs/baffinvektt_00_defconfig
+make $COMMON -j$(nproc)
