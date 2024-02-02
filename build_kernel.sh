@@ -8,7 +8,7 @@ export PATH=$PWD/toolchain/bin:$PATH
 COMMON="O=out"
 
 mkdir -p out
-make $COMMON baffinvektt_00_defconfig
+make $COMMON noperf_defconfig
 make $COMMON savedefconfig
-cp out/defconfig arch/arm/configs/baffinvektt_00_defconfig
+cp out/defconfig arch/arm/configs/noperf_defconfig
 make $COMMON -j$(nproc)
