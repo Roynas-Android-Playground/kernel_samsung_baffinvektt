@@ -106,17 +106,17 @@
 #endif
 
 #define SCENARIO_IS_COLOR(scenario)	\
-	((scenario >= COLOR_TONE_1) && (scenario < COLOR_TONE_MAX))
+	((scenario >= (enum SCENARIO) COLOR_TONE_1) && (scenario < (enum SCENARIO) COLOR_TONE_MAX))
 
 #if defined(CONFIG_TDMB) || defined(CONFIG_TARGET_LOCALE_NTT)
 #define SCENARIO_IS_DMB(scenario)	\
-	((scenario >= DMB_NORMAL_MODE) && (scenario < DMB_MODE_MAX))
+	((scenario >= (enum SCENARIO) DMB_NORMAL_MODE) && (scenario < (enum SCENARIO) DMB_MODE_MAX))
 #define SCENARIO_IS_VALID(scenario)	\
 	((SCENARIO_IS_COLOR(scenario)) || SCENARIO_IS_DMB(scenario) || \
-	(scenario < SCENARIO_MAX))
+	(scenario < (enum SCENARIO) SCENARIO_MAX))
 #else
 #define SCENARIO_IS_VALID(scenario)	\
-	((SCENARIO_IS_COLOR(scenario)) || (scenario < SCENARIO_MAX))
+	((SCENARIO_IS_COLOR(scenario)) || (scenario < (enum SCENARIO) SCENARIO_MAX))
 #endif
 
 struct class *mdnie_class;

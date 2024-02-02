@@ -95,7 +95,7 @@ static bool __get_ensemble_info(struct ensemble_info_type *e_info
 							, unsigned long freq)
 {
 	struct tcc_ensemble_info *ensbl_info;
-	struct tcc_ensemble *esbl = &ensbl_info->ensbl;
+	struct tcc_ensemble *esbl;
 	struct tcc_service_info *svc_info;
 	struct tcc_service_comp_info *svc_comp_info;
 
@@ -104,7 +104,6 @@ static bool __get_ensemble_info(struct ensemble_info_type *e_info
 
 	ensbl_info = tcc_fic_get_ensbl_info(1);
 	esbl = &ensbl_info->ensbl;
-
 	memset(e_info, 0, sizeof(e_info));
 
 	e_info->ensem_freq = freq;

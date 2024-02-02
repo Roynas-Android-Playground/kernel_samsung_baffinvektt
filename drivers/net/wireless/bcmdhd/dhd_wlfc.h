@@ -84,7 +84,7 @@ typedef struct wlfc_hanger {
 	uint32 failed_to_push;
 	uint32 failed_to_pop;
 	uint32 failed_slotfind;
-	wlfc_hanger_item_t items[1];
+	wlfc_hanger_item_t items[WLFC_HANGER_MAXITEMS];
 	uint32 slot_pos;
 } wlfc_hanger_t;
 

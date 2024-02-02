@@ -2356,7 +2356,7 @@ static void l2cap_conf_rfc_get(struct l2cap_chan *chan, void *rsp, int len)
 {
 	int type, olen;
 	unsigned long val;
-	struct l2cap_conf_rfc rfc;
+	struct l2cap_conf_rfc rfc = { .mode = 0, .retrans_timeout = 0, .monitor_timeout = 0, .max_pdu_size = 0 };
 
 	BT_DBG("chan %p, rsp %p, len %d", chan, rsp, len);
 
