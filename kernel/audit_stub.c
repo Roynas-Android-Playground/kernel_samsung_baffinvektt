@@ -42,5 +42,7 @@
  */
 
 #include <linux/audit.h>
+#include <linux/lsm_audit.h>
 
 int audit_update_lsm_rules(void) { return 0; }
+void common_lsm_audit(struct common_audit_data *a) {}
