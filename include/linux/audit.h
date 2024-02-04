@@ -635,9 +635,6 @@ extern int audit_enabled;
 #define audit_log_untrustedstring(a,s) do { ; } while (0)
 #define audit_log_d_path(b, p, d) do { ; } while (0)
 #define audit_log_key(b, k) do { ; } while (0)
-#define audit_log_lost(a) do { ; } while (0)
-// Goto audit_stub.c
-extern int                  audit_update_lsm_rules(void);
 #define audit_enabled 0
 #endif
 #endif

@@ -68,11 +68,7 @@ obj-$(CONFIG_IKCONFIG) += configs.o
 obj-$(CONFIG_RESOURCE_COUNTERS) += res_counter.o
 obj-$(CONFIG_SMP) += stop_machine.o
 obj-$(CONFIG_KPROBES_SANITY_TEST) += test_kprobes.o
-ifeq ($(CONFIG_AUDIT),y)
-obj-y += audit.o auditfilter.o
-else
-obj-y += audit_stub.o
-endif
+obj-$(CONFIG_AUDIT) += audit.o auditfilter.o
 obj-$(CONFIG_AUDITSYSCALL) += auditsc.o
 obj-$(CONFIG_AUDIT_WATCH) += audit_watch.o
 obj-$(CONFIG_AUDIT_TREE) += audit_tree.o
