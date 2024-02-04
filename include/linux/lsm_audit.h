@@ -29,6 +29,24 @@ struct lsm_ioctlop_audit {
 	u16 cmd;
 };
 
+#ifdef CONFIG_SECURITY_SELINUX
+struct selinux_audit_data {
+	u32 ssid;
+	u32 tsid;
+	u16 tclass;
+	u32 requested;
+	u32 audited;
+	u32 denied;
+	/*
+	 * auditdeny is a bit tricky and unintuitive.  See the
+	 * comments in avc.c for it's meaning and usage.
+	 */
+	u32 auditdeny;
+	struct av_decision *avd;
+	int result;
+};
+#endif
+
 /* Auxiliary data to use in generating the audit record. */
 struct common_audit_data {
 	char type;
@@ -91,21 +109,7 @@ struct common_audit_data {
 #endif
 #ifdef CONFIG_SECURITY_SELINUX
 		/* SELinux data */
-		struct {
-			u32 ssid;
-			u32 tsid;
-			u16 tclass;
-			u32 requested;
-			u32 audited;
-			u32 denied;
-			/*
-			 * auditdeny is a bit tricky and unintuitive.  See the
-			 * comments in avc.c for it's meaning and usage.
-			 */
-			u32 auditdeny;
-			struct av_decision *avd;
-			int result;
-		} selinux_audit_data;
+		struct selinux_audit_data selinux_audit_data;
 #endif
 #ifdef CONFIG_SECURITY_APPARMOR
 		struct {

@@ -3063,7 +3063,7 @@ int ioctl_has_perm(const struct cred *cred, struct file *file,
 	COMMON_AUDIT_DATA_INIT(&ad, IOCTL_OP);
 	ad.u.op = &ioctl;
 	ad.u.op->cmd = cmd;
-	ad.selinux_audit_data = &sad;
+	ad.selinux_audit_data = sad;
 	ad.u.op->path = file->f_path;
 
 	if (ssid != fsec->sid) {
