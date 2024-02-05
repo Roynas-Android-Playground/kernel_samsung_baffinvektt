@@ -73,6 +73,11 @@
 #include <linux/security.h>
 #include <linux/spinlock.h>
 
+typedef uid_t kuid_t;
+#define uid_valid(uid) (uid != -1)
+#define uid_eq(uid1, uid2) (uid1 == uid2)
+#define from_kuid(ns, uid) (uid)
+
 #include "binder.h"
 #include "binder_alloc.h"
 #include "binder_trace.h"
