@@ -60,6 +60,9 @@
 #include <wl_cfgp2p.h>
 #include <wl_android.h>
 
+#undef LINUX_VERSION_CODE
+#define LINUX_VERSION_CODE KERNEL_VERSION(3, 4, 0)
+
 #ifdef PROP_TXSTATUS
 #include <dhd_wlfc.h>
 #endif
